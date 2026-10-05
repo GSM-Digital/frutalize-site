@@ -1,6 +1,7 @@
 const form = document.querySelector("#interest-form");
 const phoneInput = document.querySelector("#phone");
 const formStatus = document.querySelector("#form-status");
+const successCard = document.querySelector("#success-card");
 const submitButton = form.querySelector('button[type="submit"]');
 
 const fields = {
@@ -106,7 +107,9 @@ form.addEventListener("submit", async (event) => {
       field.input.removeAttribute("aria-invalid");
       field.error.textContent = "";
     });
-    formStatus.textContent = "Cadastro realizado! Você já está concorrendo a 5 kg de polpa grátis.";
+    form.hidden = true;
+    successCard.hidden = false;
+    successCard.focus({ preventScroll: true });
   } catch (error) {
     formStatus.classList.add("is-error");
     formStatus.textContent =

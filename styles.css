@@ -133,6 +133,10 @@ h1 {
   text-align: left;
 }
 
+.signup-form[hidden] {
+  display: none;
+}
+
 .field {
   min-width: 0;
 }
@@ -241,6 +245,58 @@ button:focus-visible {
   color: var(--danger);
 }
 
+.success-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 15px;
+  width: min(100%, 640px);
+  min-height: 126px;
+  margin: 16px auto 0;
+  padding: 20px;
+  color: var(--green-dark);
+  text-align: left;
+  background: rgb(232 248 238 / 92%);
+  border: 1px solid rgb(0 141 77 / 24%);
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgb(0 111 60 / 13%);
+  outline: none;
+}
+
+.success-card[hidden] {
+  display: none;
+}
+
+.success-card:focus-visible {
+  outline: 3px solid rgb(249 162 62 / 65%);
+  outline-offset: 3px;
+}
+
+.success-icon {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  color: #fff;
+  font-size: 1.55rem;
+  font-weight: 900;
+  background: var(--green);
+  border-radius: 50%;
+  place-items: center;
+}
+
+.success-card strong {
+  display: block;
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.success-card p {
+  margin: 4px 0 0;
+  color: var(--ink);
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
 @media (min-width: 768px) {
   .coming-soon {
     padding: 34px;
@@ -297,6 +353,19 @@ button:focus-visible {
 
   .form-status {
     grid-column: 1 / -1;
+  }
+
+  .success-card {
+    min-height: 108px;
+    padding: 22px 28px;
+  }
+
+  .success-card strong {
+    font-size: 1.22rem;
+  }
+
+  .success-card p {
+    font-size: 0.95rem;
   }
 }
 
