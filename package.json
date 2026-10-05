@@ -1,0 +1,12 @@
+{
+  "name": "frutalize-em-breve",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Página de lançamento da Frutalize com captação local de leads em CSV.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

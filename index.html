@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A Frutalize está preparando um novo ambiente digital. Cadastre-se para concorrer a 5 kg de polpa de frutas grátis."
+    />
+    <meta name="theme-color" content="#fce5bd" />
+    <title>Em breve | Frutalize</title>
+    <link
+      rel="preload"
+      as="font"
+      type="font/ttf"
+      href="./assets/fonts/kaushan-script-latin.ttf"
+      crossorigin
+    />
+    <link rel="preload" as="image" href="./Materiais/fundo mobile.png" media="(max-width: 767px)" />
+    <link rel="preload" as="image" href="./Materiais/fundo desktop.png" media="(min-width: 768px)" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="coming-soon">
+      <section class="content-card" aria-labelledby="page-title">
+        <img
+          class="brand-logo"
+          src="./Materiais/logo-transparente.png"
+          alt="Frutalize Polpas de Frutas"
+          width="1254"
+          height="1254"
+          fetchpriority="high"
+        />
+
+        <div class="intro">
+          <p class="eyebrow">Uma novidade fresquinha está chegando</p>
+          <h1 id="page-title">Em breve</h1>
+          <p class="subtitle">
+            Estamos desenvolvendo um novo ambiente digital, pensado especialmente para você.
+          </p>
+        </div>
+
+        <div class="giveaway">
+          <p class="giveaway-title">Concorra a <strong>5 kg de polpa grátis!</strong></p>
+          <p class="giveaway-copy">Preencha seus dados para participar.</p>
+
+          <form id="interest-form" class="signup-form" novalidate>
+            <div class="field field-name">
+              <label for="name">Nome</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                placeholder="Seu nome"
+                required
+              />
+              <span class="field-error" id="name-error"></span>
+            </div>
+
+            <div class="field">
+              <label for="phone">Telefone</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                inputmode="tel"
+                autocomplete="tel"
+                placeholder="(00) 00000-0000"
+                minlength="14"
+                maxlength="15"
+                required
+              />
+              <span class="field-error" id="phone-error"></span>
+            </div>
+
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                inputmode="email"
+                autocomplete="email"
+                placeholder="voce@exemplo.com"
+                required
+              />
+              <span class="field-error" id="email-error"></span>
+            </div>
+
+            <button type="submit">Quero participar</button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
