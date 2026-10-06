@@ -2,9 +2,11 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home2/thi75404/frutalize.com.br
-    - /bin/mkdir -p "$DEPLOYPATH/Materiais" "$DEPLOYPATH/api" "$DEPLOYPATH/assets" "$DEPLOYPATH/dados"
+    - /bin/mkdir -p "$DEPLOYPATH/api" "$DEPLOYPATH/assets/fonts" "$DEPLOYPATH/dados"
     - /bin/cp -f .htaccess index.html styles.css script.js robots.txt sitemap.xml llm.txt llms.txt "$DEPLOYPATH/"
-    - /bin/cp -Rf Materiais/. "$DEPLOYPATH/Materiais/"
-    - /bin/cp -Rf api/. "$DEPLOYPATH/api/"
-    - /bin/cp -Rf assets/. "$DEPLOYPATH/assets/"
-    - /bin/cp -Rf dados/. "$DEPLOYPATH/dados/"
+    - /bin/cp -f api/leads.php "$DEPLOYPATH/api/leads.php"
+    - /bin/cp -f assets/apple-touch-icon.png assets/background-desktop.png assets/background-mobile.png assets/favicon.svg assets/logo.avif assets/logo.png "$DEPLOYPATH/assets/"
+    - /bin/cp -f assets/fonts/kaushan-script-latin.ttf "$DEPLOYPATH/assets/fonts/kaushan-script-latin.ttf"
+    - /bin/cp -f dados/.htaccess "$DEPLOYPATH/dados/.htaccess"
+    - /bin/rm -rf "$DEPLOYPATH/Materiais"
+    - /bin/rm -f "$DEPLOYPATH/package.json" "$DEPLOYPATH/server.js" "$DEPLOYPATH/assets/favicon-source.png" "$DEPLOYPATH/assets/fonts/OFL-Kaushan-Script.txt" "$DEPLOYPATH/dados/.gitkeep" "$DEPLOYPATH/dados/README.txt"

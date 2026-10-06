@@ -50,7 +50,7 @@ input {
   padding-block: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-bottom));
   padding-inline: max(14px, env(safe-area-inset-left)) max(14px, env(safe-area-inset-right));
   background-color: var(--cream);
-  background-image: url("./Materiais/fundo mobile.png");
+  background-image: url("./assets/background-mobile.png");
   background-position: center;
   background-size: cover;
 }
@@ -349,7 +349,7 @@ button:focus-visible {
 @media (min-width: 768px) {
   .coming-soon {
     padding: 34px;
-    background-image: url("./Materiais/fundo desktop.png");
+    background-image: url("./assets/background-desktop.png");
   }
 
   .content-card {
