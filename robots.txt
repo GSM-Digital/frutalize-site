@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /dados/
+
+Sitemap: https://frutalize.com.br/sitemap.xml

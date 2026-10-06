@@ -1,0 +1,19 @@
+# Frutalize
+
+> A Frutalize é uma marca de polpas de frutas e está preparando um novo ambiente digital.
+
+## Página oficial
+
+- [Site oficial da Frutalize](https://frutalize.com.br/)
+- Idioma: português do Brasil
+- Situação atual: página de lançamento “Em breve”
+
+## Conteúdo confirmado
+
+- A Frutalize trabalha com polpas de frutas.
+- O novo site da Frutalize está em desenvolvimento.
+- A página permite cadastrar nome, telefone e e-mail para participar da ação promocional de 5 kg de polpa grátis.
+
+## Referência
+
+- [Página inicial da Frutalize](https://frutalize.com.br/)

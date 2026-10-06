@@ -8,16 +8,26 @@ const leadsFile = path.join(dataDirectory, "leads.csv");
 const port = Number(process.env.PORT) || 4173;
 const host = process.env.HOST || "127.0.0.1";
 const bodyLimit = 20 * 1024;
+const htaccessContents = fs.readFileSync(path.join(rootDirectory, ".htaccess"), "utf8");
+const contentSecurityPolicyMatch = htaccessContents.match(
+  /Header always set Content-Security-Policy "([^"]+)"/,
+);
+const localContentSecurityPolicy = contentSecurityPolicyMatch
+  ? contentSecurityPolicyMatch[1].replace(/; upgrade-insecure-requests$/, "")
+  : "default-src 'self'";
 
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
+  ".avif": "image/avif",
   ".pdf": "application/pdf",
   ".png": "image/png",
   ".svg": "image/svg+xml; charset=utf-8",
+  ".txt": "text/plain; charset=utf-8",
   ".ttf": "font/ttf",
+  ".xml": "application/xml; charset=utf-8",
 };
 
 let writeQueue = Promise.resolve();
@@ -160,8 +170,29 @@ function serveStaticFile(request, response, pathname) {
       return;
     }
 
+    const extension = path.extname(filePath).toLowerCase();
+    const longCacheExtensions = new Set([
+      ".avif",
+      ".gif",
+      ".ico",
+      ".jpg",
+      ".jpeg",
+      ".png",
+      ".svg",
+      ".ttf",
+      ".webp",
+      ".woff",
+      ".woff2",
+    ]);
+    const cacheControl = longCacheExtensions.has(extension) || extension === ".css" || extension === ".js"
+      ? "public, max-age=31536000, immutable"
+      : "public, max-age=0, must-revalidate";
+
     response.writeHead(200, {
-      "Content-Type": mimeTypes[path.extname(filePath).toLowerCase()] || "application/octet-stream",
+      "Content-Type": mimeTypes[extension] || "application/octet-stream",
+      "Cache-Control": cacheControl,
+      "Content-Security-Policy": localContentSecurityPolicy,
+      "Referrer-Policy": "strict-origin-when-cross-origin",
       "X-Content-Type-Options": "nosniff",
     });
     fs.createReadStream(filePath).pipe(response);

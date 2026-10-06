@@ -3,7 +3,7 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home2/thi75404/frutalize.com.br
     - /bin/mkdir -p "$DEPLOYPATH/Materiais" "$DEPLOYPATH/api" "$DEPLOYPATH/assets" "$DEPLOYPATH/dados"
-    - /bin/cp -f index.html styles.css script.js server.js package.json "$DEPLOYPATH/"
+    - /bin/cp -f .htaccess index.html styles.css script.js robots.txt sitemap.xml llm.txt llms.txt "$DEPLOYPATH/"
     - /bin/cp -Rf Materiais/. "$DEPLOYPATH/Materiais/"
     - /bin/cp -Rf api/. "$DEPLOYPATH/api/"
     - /bin/cp -Rf assets/. "$DEPLOYPATH/assets/"

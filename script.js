@@ -4,6 +4,34 @@ const formStatus = document.querySelector("#form-status");
 const successCard = document.querySelector("#success-card");
 const submitButton = form.querySelector('button[type="submit"]');
 
+function initializeRevealEffects() {
+  const targets = document.querySelectorAll("[data-reveal]");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (reducedMotion || !("IntersectionObserver" in window)) {
+    targets.forEach((target) => target.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "0px 0px -8%", threshold: 0.12 },
+  );
+
+  targets.forEach((target) => {
+    target.classList.add("reveal-item");
+    observer.observe(target);
+  });
+}
+
+initializeRevealEffects();
+
 const fields = {
   name: {
     input: document.querySelector("#name"),
@@ -110,6 +138,12 @@ form.addEventListener("submit", async (event) => {
     form.hidden = true;
     successCard.hidden = false;
     successCard.focus({ preventScroll: true });
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "generate_lead",
+      form_id: "frutalize-coming-soon",
+    });
   } catch (error) {
     formStatus.classList.add("is-error");
     formStatus.textContent =
