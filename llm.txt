@@ -12,7 +12,7 @@
 
 - A Frutalize trabalha com polpas de frutas.
 - O novo site da Frutalize está em desenvolvimento.
-- A página permite cadastrar nome, telefone e e-mail para participar da ação promocional de 5 kg de polpa grátis.
+- A página permite cadastrar nome, telefone e e-mail para participar da ação promocional de 2 kg de polpa grátis.
 
 ## Referência
 
