@@ -12,7 +12,7 @@
 
 - A Frutalize trabalha com polpas de frutas.
 - O novo site da Frutalize está em desenvolvimento.
-- A página permite cadastrar nome, telefone e e-mail para concorrer a 1 ano de polpa grátis, em qualquer sabor.
+- A página permite cadastrar nome, telefone e e-mail para concorrer a 1 ano de polpa grátis e escolher o sabor favorito.
 
 ## Referência
 
